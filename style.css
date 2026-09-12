@@ -1,0 +1,1065 @@
+/* --- RESET & VARIABLES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+:root {
+    --primary-color: #0d9488;    /* Hijau Toska / Medical Green */
+    --primary-hover: #0f766e;
+    --accent-color: #0284c7;     /* Biru Medis */
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --text-dark: #1e293b;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* --- HEADER & NAVBAR --- */
+header {
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.logo-icon-svg {
+    width: 32px;
+    height: 32px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 6px;
+    border-radius: 8px;
+}
+.logo-icon {
+    background-color: var(--primary-color);
+    color: white;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    background: linear-gradient(135deg, #ccfbf1 0%, #e0f2fe 100%);
+    padding: 3rem 1.5rem;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 2rem;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.hero p {
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+/* --- PRODUCTS SECTION --- */
+.container {
+    max-width: 1200px;
+    margin: 2.5rem auto;
+    padding: 0 1.5rem;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--text-dark);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+}
+
+/* Pastikan product-card memiliki position relative */
+.product-card {
+    position: relative; /* Tambahkan baris ini */
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Style untuk Logo di Atas Foto Produk */
+.product-badge-logo {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 4px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+.product-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background-color: #f1f5f9;
+}
+
+.product-info {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.product-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* --- QUANTITY & BUTTON --- */
+.order-controls {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.qty-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f1f5f9;
+    padding: 0.25rem 0.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.qty-label {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+.qty-counter {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.qty-btn {
+    background-color: white;
+    border: 1px solid var(--border-color);
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.1s;
+}
+
+.qty-btn:hover {
+    background-color: #e2e8f0;
+}
+
+.qty-input {
+    width: 50px;
+    text-align: center;
+    border: none;
+    background: transparent;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.btn-order {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: background-color 0.2s ease;
+    width: 100%;
+}
+
+.btn-order:hover {
+    background-color: var(--primary-hover);
+}
+
+/* --- FOOTER SECTION --- */
+footer {
+    background-color: var(--card-bg);
+    border-top: 1px solid var(--border-color);
+    margin-top: 4rem;
+    padding: 3rem 1.5rem 1.5rem 1.5rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.info-block h4 {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+}
+
+.info-block p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.info-block a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.info-block a:hover {
+    text-decoration: underline;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+/* --- INFORMASI LAYANAN (VALUE BANNER) --- */
+.services-bar {
+    background-color: #ffffff;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 30px 0;
+    margin-top: 40px;
+}
+
+.services-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+}
+
+.service-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.service-icon {
+    font-size: 36px;
+}
+
+.service-text h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 4px;
+}
+
+.service-text p {
+    font-size: 12px;
+    color: #64748b;
+    line-height: 1.4;
+}
+
+/* --- FOOTER INFORMASI (4 KOLOM) --- */
+.site-footer {
+    background-color: #ffffff;
+    padding-top: 40px;
+}
+
+.footer-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px 40px;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.footer-col h4 {
+    font-size: 11px;
+    font-weight: 700;
+    color: #64748b;
+    letter-spacing: 0.5px;
+}
+
+.footer-line {
+    width: 25px;
+    height: 2px;
+    background-color: #cbd5e1;
+    margin: 8px 0 12px;
+}
+
+.footer-col p {
+    font-size: 12px;
+    color: #475569;
+    line-height: 1.6;
+}
+
+.footer-email {
+    margin-top: 10px;
+    color: #94a3b8 !important;
+}
+
+.courier-list {
+    font-weight: bold;
+    color: #334155;
+}
+
+.footer-bottom {
+    background-color: #38bdf8;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    font-size: 12px;
+}
+
+/* Responsif Layar HP */
+@media (max-width: 768px) {
+    .services-container, .footer-grid {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+/* Merapikan gambar logo di footer */
+.site-footer .logo img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+/* KELOLA LAYOUT 4 KOLOM FOOTER */
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr 1fr; /* Diatur pas untuk 4 kolom */
+    gap: 20px;
+}
+
+/* LOGO WA DI CS */
+.cs-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: #16a34a;
+    margin-bottom: 4px;
+}
+
+.icon-wa {
+    width: 18px;
+    height: 18px;
+}
+
+/* BADGE LOGO EKSPEDISI / PENGIRIMAN */
+.courier-logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 5px;
+}
+
+.badge-courier {
+    padding: 4px 8px;
+    font-size: 10px;
+    font-weight: 800;
+    border-radius: 4px;
+    color: white;
+    letter-spacing: 0.5px;
+}
+
+.badge-jnt { background-color: #e11d48; }      /* Merah J&T */
+.badge-jne { background-color: #1d4ed8; }      /* Biru JNE */
+.badge-sicepat { background-color: #b91c1c; }  /* Merah SiCepat */
+.badge-grab { background-color: #15803d; }     /* Hijau Grab */
+
+/* TAMPILAN LOGO PENGIRIMAN RAPI & SEIMBANG */
+.courier-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 10px;
+    align-items: center;
+    justify-items: center;
+    margin-top: 10px;
+    max-width: 150px;
+}
+
+.courier-grid img {
+    width: 60px;
+    height: 35px;
+    object-fit: contain;
+    filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.1));
+}
+/* HERO BANNER STYLING */
+.hero-section {
+    background: linear-gradient(135deg, #e0f2fe 0%, #f0fdf4 100%);
+    padding: 50px 20px;
+    text-align: center;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.hero-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-badge {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #166534;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    margin-bottom: 16px;
+}
+
+.hero-section h1 {
+    font-size: 32px;
+    color: #0f172a;
+    font-weight: 800;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+}
+
+.hero-section p {
+    font-size: 15px;
+    color: #475569;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto 24px auto;
+}
+
+.hero-features {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.feature-item {
+    font-size: 12px;
+    font-weight: 700;
+    color: #0f766e;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccfbf1;
+}
+
+/* =========================================
+   KODE TAMBAHAN: Memperkecil Ukuran Card Produk
+   (Tempel di baris paling bawah style.css)
+   ========================================= */
+
+/* 1. Memperkecil lebar maksimal card */
+.product-card, 
+.card, 
+[class*="card"] {
+  max-width: 250px !important; /* Atur lebar maksimal card (bisa diganti 220px/200px jika kurang kecil) */
+  margin: 0 auto; /* Supaya tetap rapi di tengah */
+  font-size: 0.9rem; /* Memperkecil ukuran teks secara keseluruhan */
+}
+
+/* 2. Memperkecil jarak dalam (padding) card */
+.product-card, 
+.card, 
+[class*="card"] {
+  padding: 12px !important;
+}
+
+/* 3. Memperkecil ukuran gambar produk */
+.product-card img, 
+.card img, 
+[class*="card"] img {
+  max-height: 140px !important; /* Batasi tinggi gambar produk */
+  object-fit: contain !important;
+}
+
+/* 4. Memperkecil judul produk */
+.product-card h3, 
+.product-card h4, 
+.card h3, 
+.card h4 {
+  font-size: 1rem !important;
+  margin: 8px 0 !important;
+}
+
+/* 5. Memperkecil tombol "Pesan via WhatsApp" & form jumlah */
+.product-card button, 
+.card button, 
+.product-card input, 
+.card input {
+  padding: 8px 12px !important;
+  font-size: 0.85rem !important;
+}
+/* =========================================
+   KODE KHUSUS UNTUK TAMPILAN HP (RESPONSIVE)
+   (Tempel di baris paling bawah style.css)
+   ========================================= */
+
+@media screen and (max-width: 600px) {
+  /* 1. Atur container produk agar menampilkan 2 kolom / sejajar di HP */
+  .product-container,
+  .products-grid,
+  .product-list,
+  section .container {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important; /* Membuat 2 card berdampingan */
+    gap: 10px !important; /* Jarak antar card di HP */
+    padding: 10px !important;
+  }
+
+  /* 2. Memperkecil kartu produk */
+  .product-card,
+  .card,
+  [class*="card"] {
+    max-width: 100% !important;
+    padding: 10px !important;
+    border-radius: 10px !important;
+  }
+
+  /* 3. Memperkecil tinggi gambar produk agar muat di HP */
+  .product-card img,
+  .card img,
+  [class*="card"] img {
+    max-height: 100px !important;
+    object-fit: contain !important;
+  }
+
+  /* 4. Memperkecil judul dan harga obat */
+  .product-card h3,
+  .card h3,
+  .product-card h4,
+  .card h4 {
+    font-size: 0.85rem !important;
+    margin: 4px 0 !important;
+  }
+
+  /* 5. Memperkecil tulisan harga */
+  .price, 
+  [class*="price"] {
+    font-size: 0.9rem !important;
+  }
+
+  /* 6. Memperkecil tombol dan input jumlah obat di HP */
+  .product-card button,
+  .card button,
+  .product-card input,
+  .card input,
+  .product-card select {
+    padding: 6px 8px !important;
+    font-size: 0.75rem !important;
+  }
+}
+/* =========================================
+   PERBAIKAN GAMBAR PRODUK V2
+   (Tempel di baris paling bawah style.css)
+   ========================================= */
+
+/* 1. Kunci ukuran logo watermark kecil agar TIDAK membesar */
+.product-card .badge img,
+.product-card .logo-badge img,
+.card .logo-card,
+[class*="badge"] img,
+[class*="logo"] img {
+  width: 32px !important;
+  height: 32px !important;
+  max-width: 32px !important;
+  max-height: 32px !important;
+}
+
+/* 2. Khusus untuk Gambar Produk Utama */
+.product-card > img:first-of-type,
+.card > img:first-of-type,
+.product-card .product-img,
+.card .product-img {
+  width: 100% !important;
+  max-height: 160px !important; /* Membatasi tinggi gambar produk agar pas */
+  object-fit: contain !important; /* Menjaga foto obat tetap utuh & rapi */
+  margin: 0 auto !important;
+  display: block !important;
+}
+
+/* 3. Atur lebar kartu produk */
+.product-card,
+.card {
+  max-width: 250px !important;
+  margin: 0 auto !important;
+  padding: 12px !important;
+}
+/* =========================================
+   PERBAIKAN LOGO BADGE & LATAR FOTO
+   (Tempel di baris paling bawah style.css)
+   ========================================= */
+
+/* 1. Hilangkan latar belakang abu-abu di area foto */
+.product-card, 
+.card,
+[class*="card"] {
+  background-color: #ffffff !important;
+}
+
+/* 2. Kunci ukuran badge bundar logo di atas agar tidak melebar */
+.product-card [class*="badge"],
+.card [class*="badge"],
+.product-card .logo-badge,
+.card .logo-badge {
+  width: 45px !important;
+  height: 45px !important;
+  max-width: 45px !important;
+  max-height: 45px !important;
+  border-radius: 50% !important;
+  margin: 0 auto !important;
+  position: absolute !important;
+  top: 10px !important;
+  right: 10px !important;
+  left: auto !important;
+  transform: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* 3. Kunci gambar logo di dalam badge */
+.product-card [class*="badge"] img,
+.card [class*="badge"] img {
+  width: 25px !important;
+  height: 25px !important;
+  object-fit: contain !important;
+}
+
+/* 4. Atur foto obat utama agar pas di tengah tanpa background terpotong */
+.product-card > img,
+.card > img,
+.product-card .product-img,
+.card .product-img {
+  width: 100% !important;
+  max-height: 140px !important;
+  object-fit: contain !important;
+  background: transparent !important;
+  margin-top: 15px !important;
+}
+/* =========================================
+   ANIMASI HOVER TOMBOL WA (SLIDE UP)
+   (Tempel di baris paling bawah style.css)
+   ========================================= */
+
+/* 1. Set kartu produk sebagai acuan posisi (relative) & sembunyikan overflow */
+.product-card,
+.card,
+[class*="card"] {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/* 2. Sembunyikan tombol WA ke bawah foto produk saat normal */
+.product-card button,
+.card button,
+.product-card .btn-whatsapp,
+.card .btn-whatsapp,
+.product-card a[href*="wa.me"],
+.card a[href*="wa.me"] {
+  position: relative !important;
+  transform: translateY(120%) !important; /* Geser tombol turun keluar layar card */
+  opacity: 0 !important;
+  transition: all 0.35s ease-in-out !important; /* Efek pergerakan halus */
+  width: 100% !important;
+  margin-top: 8px !important;
+}
+
+/* 3. Munculkan tombol WA naik ke atas saat kartu di-hover / disentuh */
+.product-card:hover button,
+.card:hover button,
+.product-card:hover .btn-whatsapp,
+.card:hover .btn-whatsapp,
+.product-card:hover a[href*="wa.me"],
+.card:hover a[href*="wa.me"] {
+  transform: translateY(0) !important; /* Kembalikan ke posisi semula */
+  opacity: 1 !important; /* Buat tombol terlihat */
+}
+/* =========================================
+   HILANGKAN INPUT JUMLAH PRODUK
+   (Tempel di baris paling bawah style.css)
+   ========================================= */
+
+/* Menyembunyikan elemen input jumlah dan wrapper-nya */
+.product-card input[type="number"],
+.card input[type="number"],
+.product-card .quantity,
+.card .quantity,
+.product-card [class*="jumlah"],
+.card [class*="jumlah"],
+.product-card [class*="qty"],
+.card [class*="qty"] {
+  display: none !important;
+}
+/* =========================================
+   PERBAIKAN NOMOR WHATSAPP FOOTER
+   (Tempel di baris paling bawah style.css)
+   ========================================= */
+
+/* 1. Atur pembungkus nomor & ikon agar sejajar sempurna */
+.footer [href*="wa.me"],
+.footer [href*="whatsapp"],
+.footer .phone,
+.footer [class*="whatsapp"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  white-space: nowrap !important; /* Mencegah nomor terpotong/turun ke bawah */
+  gap: 6px !important;
+}
+
+/* 2. Perkecil ukuran teks nomor agar pas di satu baris */
+.footer [href*="wa.me"] span,
+.footer [href*="whatsapp"] span,
+.footer .phone span,
+.footer [class*="whatsapp"] a,
+.footer [class*="whatsapp"] span {
+  font-size: 0.85rem !important; /* Perkecil ukuran angka */
+  letter-spacing: -0.3px !important; /* Merapatkan sedikit jarak antar angka */
+  display: inline-block !important;
+}
+
+/* 3. Atur ukuran ikon WhatsApp agar proporsional */
+.footer [href*="wa.me"] img,
+.footer [href*="whatsapp"] img,
+.footer [class*="whatsapp"] img,
+.footer [class*="whatsapp"] i {
+  width: 18px !important;
+  height: 18px !important;
+  flex-shrink: 0 !important;
+}
+/* =========================================
+   FIX NOMOR WA SEJAJAR (HTML BARU)
+   ========================================= */
+
+.wa-link, 
+.wa-wrapper {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  text-decoration: none !important;
+  white-space: nowrap !important; /* Mengunci nomor agar TIDAK BISA turun ke bawah */
+  margin: 6px 0 !important;
+}
+
+.wa-icon {
+  width: 18px !important;
+  height: 18px !important;
+  flex-shrink: 0 !important;
+}
+
+.wa-link span, 
+.wa-wrapper span {
+  color: #00a884 !important; /* Warna hijau WA */
+  font-weight: bold !important;
+  font-size: 0.85rem !important; /* Ukuran pas agar muat di kolom */
+}
+/* =========================================
+   CARD PRODUK MEPET (PRESISI SESUAI FOTO)
+   (Tempel di baris paling bawah style.css)
+   ========================================= */
+
+/* 1. Atur container grid agar jarak antar-kartu sangat rapat */
+.products-grid,
+.product-container,
+section .container {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important;
+  gap: 8px 6px !important; /* Jarak rapat antar card ke samping & bawah */
+  padding: 4px !important;
+}
+
+/* 2. Hilangkan border, shadow, dan padding luar card */
+.product-card,
+.card,
+[class*="card"] {
+  background: #ffffff !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important; /* Dibuat 0 agar mepet */
+  margin: 0 !important;
+  text-align: center !important;
+}
+
+/* 3. Buat gambar memenuhi lebar kartu tanpa sisa jarak */
+.product-card img,
+.card img,
+[class*="card"] img {
+  width: 100% !important;
+  height: 140px !important;
+  object-fit: contain !important;
+  margin: 0 auto !important;
+  display: block !important;
+}
+
+/* 4. Sembunyikan badge bulatan logo jika ada */
+.product-card [class*="badge"],
+.card [class*="badge"] {
+  display: none !important;
+}
+
+/* 5. Teks judul & harga lebih rapat */
+.product-card h3,
+.product-card h4,
+.card h3,
+.card h4 {
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  color: #222222 !important;
+  margin: 6px 0 2px 0 !important;
+  line-height: 1.2 !important;
+}
+
+.product-card .price,
+.card .price,
+[class*="price"] {
+  font-size: 0.85rem !important;
+  font-weight: bold !important;
+  color: #000000 !important;
+  margin-bottom: 6px !important;
+}
+/* =========================================
+   PERBAIKAN FINAL: CARD AUTO-RESPONSIF & MEPET
+   (Tempel di baris paling bawah style.css)
+   ========================================= */
+
+/* 1. Container Grid: Rapat & Otomatis Nyesuaiin Layar */
+.products-grid,
+.product-container,
+.products-list,
+section .container {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)) !important;
+  gap: 10px !important; /* Jarak antar card dibuat rapat */
+  padding: 10px !important;
+  width: 100% !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+}
+
+/* 2. Kartu Produk Presisi */
+.product-card,
+.card,
+[class*="product"],
+[class*="card"] {
+  position: relative !important;
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important; /* Border tipis rapi */
+  border-radius: 8px !important;
+  padding: 8px !important;
+  margin: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  box-shadow: none !important;
+}
+
+/* 3. Gambar Obat Proporsional */
+.product-card img:not([class*="badge"] img),
+.card img:not([class*="badge"] img) {
+  width: 100% !important;
+  height: 130px !important;
+  object-fit: contain !important;
+  display: block !important;
+  margin: 0 auto 6px auto !important;
+}
+
+/* 4. Logo Bulat Kecil Terkunci di Pojok */
+.product-card [class*="badge"],
+.card [class*="badge"] {
+  position: absolute !important;
+  top: 6px !important;
+  right: 6px !important;
+  width: 26px !important;
+  height: 26px !important;
+  background: #ffffff !important;
+  border-radius: 50% !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 5 !important;
+}
+
+.product-card [class*="badge"] img,
+.card [class*="badge"] img {
+  width: 16px !important;
+  height: 16px !important;
+  object-fit: contain !important;
+}
+
+/* 5. Teks Judul & Harga */
+.product-card h3, .product-card h4, .product-card p,
+.card h3, .card h4, .card p {
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  color: #222222 !important;
+  margin: 4px 0 2px 0 !important;
+  text-align: center !important;
+}
+
+.product-card .price, .card .price, [class*="price"] {
+  font-size: 0.88rem !important;
+  font-weight: bold !important;
+  color: #000000 !important;
+  text-align: center !important;
+}
+/* =========================================
+   FIX LOGO BUNDAR KECIL (BERDASARKAN INSPECT)
+   (Tempel di baris paling bawah style.css)
+   ========================================= */
+
+/* Kunci elemen .product-badge-logo agar berbentuk lingkaran sempurna */
+img.product-badge-logo,
+.product-card > img.product-badge-logo {
+  all: unset !important; /* Reset semua CSS bentrok bawaan */
+  position: absolute !important;
+  top: 10px !important;
+  right: 10px !important;
+  width: 32px !important;
+  height: 32px !important;
+  min-width: 32px !important;
+  min-height: 32px !important;
+  max-width: 32px !important;
+  max-height: 32px !important;
+  object-fit: contain !important;
+  background-color: #ffffff !important;
+  border-radius: 50% !important;
+  border: 1px solid #e0e0e0 !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15) !important;
+  z-index: 99 !important;
+  display: block !important;
+  padding: 2px !important;
+  box-sizing: border-box !important;
+}
+/* =========================================
+   PERBAIKAN FOOTER UNTUK LAYAR HP (RESPONSIF)
+   (Tempel di baris paling bawah style.css)
+   ========================================= */
+
+@media screen and (max-width: 768px) {
+  /* 1. Paksa container footer menyusun ke bawah di HP */
+  footer,
+  .footer,
+  .footer-container,
+  [class*="footer"] {
+    display: flex !important;
+    flex-direction: column !important; /* Susun 1 per 1 ke bawah */
+    gap: 24px !important;
+    padding: 24px 16px !important;
+    text-align: left !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 2. Tiap kolom footer memenuhi lebar layar HP */
+  footer > div,
+  .footer > div,
+  [class*="footer"] > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  /* 3. Penataan ikon ekspedisi / pengiriman */
+  .pengiriman-container,
+  .shipping-icons,
+  [class*="pengiriman"] {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+  }
+
+  .pengiriman-container img,
+  [class*="pengiriman"] img {
+    width: 45px !important;
+    height: auto !important;
+  }
+}

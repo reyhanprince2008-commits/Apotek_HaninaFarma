@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apotek Sehat Sejahtera - Solusi Kesehatan Anda</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- File CSS Eksternal -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <div class="navbar">
+            <!-- Ganti bagian ini di navbar index.html -->
+<div class="logo">
+    <img src="logo.jpeg" alt="Logo Hanina Farma" style="width: 35px; height: 35px; object-fit: contain;">
+    <span>Hanina Farma</span>
+</div>
+    </header>
+
+    <!-- HERO BANNER PROFESIONAL -->
+<section class="hero-section">
+    <div class="hero-container">
+        <div class="hero-badge">
+            <span>🛡️ 100% Produk Original &amp; Resep Resmi</span>
+        </div>
+        <h1> Hanina Farma</h1>
+        <p>Pesan obat asli dan kebutuhan kesehatan Anda secara langsung via WhatsApp. Layanan cepat, aman, dan terpercaya.</p>
+        
+        <div class="hero-features">
+            <div class="feature-item">⚡ Fast Response</div>
+            <div class="feature-item">📦 Pengiriman Aman</div>
+            <div class="feature-item">💊 Obat 100% Asli</div>
+        </div>
+    </div>
+</section>
+    <!-- MAIN CONTENT / PRODUCT LIST -->
+    <main class="container">
+        <h2 class="section-title">Produk</h2>
+        
+        <div class="product-grid">
+            
+            <!-- Produk 1 -->
+            <div class="product-card" id="product-1">
+                <img src="logo.jpeg" class="product-badge-logo" alt="Logo Hanina Farma">
+                <img src="obat1.jpeg" alt="Postinor 2" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-title" id="name-1">Postinor 2</h3>
+                    <div class="product-price" id="price-display-1">Rp 70.000</div>
+                    
+                    <div class="order-controls">
+                        <div class="qty-wrapper">
+                            <span class="qty-label">Jumlah</span>
+                            <div class="qty-counter">
+                                <button class="qty-btn" onclick="changeQty(1, -1)">-</button>
+                                <input type="number" id="qty-1" class="qty-input" value="1" min="1" readonly>
+                                <button class="qty-btn" onclick="changeQty(1, 1)">+</button>
+                            </div>
+                        </div>
+                        <button class="btn-order" onclick="orderViaWhatsApp(1, 70000)">
+                            <span>Pesan via WhatsApp</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produk 2 -->
+            <div class="product-card" id="product-2">
+                <img src="logo.jpeg" class="product-badge-logo" alt="Logo Hanina Farma">
+                <img src="obat2.jpeg" alt="Postpil (2 Kaplet)" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-title" id="name-2">Postpil (2 Kaplet)</h3>
+                    <div class="product-price" id="price-display-2">Rp 65.000</div>
+                    
+                    <div class="order-controls">
+                        <div class="qty-wrapper">
+                            <span class="qty-label">Jumlah</span>
+                            <div class="qty-counter">
+                                <button class="qty-btn" onclick="changeQty(2, -1)">-</button>
+                                <input type="number" id="qty-2" class="qty-input" value="1" min="1" readonly>
+                                <button class="qty-btn" onclick="changeQty(2, 1)">+</button>
+                            </div>
+                        </div>
+                        <button class="btn-order" onclick="orderViaWhatsApp(2, 65000)">
+                            <span>Pesan via WhatsApp</span>
+                        </button>
+                    </div>
+                </div>
+         </main>  
+
+    <!-- FOOTER INFORMASI -->
+<footer class="site-footer">
+    <div class="footer-grid">
+        <!-- Kolom 1: Logo -->
+        <div class="footer-col">
+            <div class="logo">
+                <img src="logo.jpeg" alt="Logo Hanina Farma">
+                <div class="logo-text">
+                    <span class="brand-title">APOTIK</span>
+                    <span class="brand-name">HANINA FARMA</span>
+                </div>
+            </div>
+        </div>
+
+       <!-- KODE HTML UNTUK CUSTOMER SUPPORT -->
+<div class="customer-support">
+  <h4>CUSTOMER SUPPORT</h4>
+  
+  <a href="https://wa.me/6285860832519" class="wa-link" target="_blank">
+    <img src="data:image/jpeg;base64,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" alt="WhatsApp" class="wa-icon">
+    <span>+6285860832519</span>
+  </a>
+
+  <p>Senin-Sabtu 08:00 - 17:00 WIB</p>
+  <p>info@haninafarma.com</p>
+</div>
+        <!-- Kolom Alamat Toko -->
+        <div class="footer-col">
+            <h4>ALAMAT TOKO</h4>
+            <div class="footer-line"></div>
+            <p>📍 Apotek Nugi Farma. Bekasi Juction. LT UG S_NA Nomor TOKO 48-49-50/Gedung lantai atas </p>
+        </div>
+
+        <!-- Kolom 4: Pengiriman -->
+        <div class="footer-col">
+            <h4>PENGIRIMAN</h4>
+            <div class="footer-line"></div>
+            <div class="courier-grid">
+                <img src="https://imgs.search.brave.com/63gGYoWE5jEarSlRihtnWXGXmQrb4R8tBCcbzo6J-hM/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90aHVt/Ym5haWwuaW1nYmlu/LmNvbS8xNi81LzIx/L2ltZ2Jpbi1zZXJ2/aWNlLWotdC1jYWJh/bmctc3VrYWRhbWkt/am50LWV4cHJlc3Mt/ZGFlbmctdGF0YS1i/dXNpbmVzcy1jb3Vy/aWVyLW90aGVycy1X/aW43aG02S0RGM0J4/NVhFVTR5RXlLZUhT/X3QuanBn" alt="J&T Express">
+                <img src="https://imgs.search.brave.com/WWvLuQ4jpmVwm5Kx9HnfwHSfEmAPTZDB4WJivOyHcG8/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/c2h1dHRlcnN0b2Nr/LmNvbS9pbWFnZS12/ZWN0b3IvamFrYXJ0/YS1pbmRvbmVzaWEt/bWF5LTIwLTIwMjMt/MjYwbnctMjMwNTUw/MjY3MS5qcGc" alt="JNE Express">
+                <img src="https://imgs.search.brave.com/33qJIQMcwn8ncVIrBuoDWPZvtDr1TyePFzNU_igI7T4/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9ibG9n/Z2VyLmdvb2dsZXVz/ZXJjb250ZW50LmNv/bS9pbWcvYi9SMjl2/WjJ4bC9BVnZYc0Vo/TUlUcVVEdVlTc0hI/VVo5ZEJQd1QyWWdM/ZmdkaFYxTXVBallf/ZWVWTEFraGFaMkpN/cU80ZTltMWZvNzJm/UFpQZGxwN2RGbm1Y/NTk4WVN6Z1paQm5C/VzJJY3dWdE1FU3Vu/bHdxMDFLdmNDdWc2/SmNVa0VKX0hoVEhS/aURxRVZGVElZVm1i/NDh6ZUlfWTgvczMy/MC9sb2dvLXNpY2Vw/YXQtZWtzcHJlcy12/ZWN0b3ItaWRuZ3Jh/ZmlzLnBuZw" alt="SiCepat Express">
+                <img src="https://imgs.search.brave.com/ybvzBSrnM2tQvwlY8QKHqxKa1Dh3Y5Q_hevp7MVYQ2c/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly96b25h/bG9nby5jb20vYXNz/ZXRzL2xvZ28tZ3Jh/Yi53ZWJwP2Fzc2V0/PTkyMiZ3PTI0MA" alt="Grab">
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright Bawah -->
+    <div class="footer-bottom">
+        <p>Copyright 2026 © Apotik Hanina Farma</p>
+    </div>
+</footer>
+
+    <!-- File JavaScript Eksternal -->
+    <script src="script.js"></script>
+</body>
+</html>
